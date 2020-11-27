@@ -1,7 +1,7 @@
 resource "aws_dynamodb_table" "dynamodb-table" {
   name           = "cmanagement-${var.environtment}"
-  read_capacity  = 5
-  write_capacity = 5
+  read_capacity  = 2
+  write_capacity = 2
   hash_key       = "pk"
   range_key      = "sk"
 
@@ -28,8 +28,8 @@ resource "aws_dynamodb_table" "dynamodb-table" {
   global_secondary_index {
     name               = "gsi_houses_compound"
     hash_key           = "sk"
-    write_capacity     = 5
-    read_capacity      = 5
+    write_capacity     = 1
+    read_capacity      = 1
     projection_type    = "ALL"
   }
 
@@ -37,8 +37,8 @@ resource "aws_dynamodb_table" "dynamodb-table" {
     name               = "gsi_payments_house"
     hash_key           = "house_id"
     range_key          = "sk"
-    write_capacity     = 5
-    read_capacity      = 5
+    write_capacity     = 1
+    read_capacity      = 1
     projection_type    = "ALL"
   }
 
@@ -46,8 +46,8 @@ resource "aws_dynamodb_table" "dynamodb-table" {
     name               = "gsi_compound_data"
     hash_key           = "compound_id"
     range_key          = "sk"
-    write_capacity     = 5
-    read_capacity      = 5
+    write_capacity     = 1
+    read_capacity      = 1
     projection_type    = "ALL"
   }
 }
